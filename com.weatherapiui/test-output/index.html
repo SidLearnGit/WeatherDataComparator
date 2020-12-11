@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Default_suite" class="navigator-link">
-              <span class="suite-name border-passed">Default suite</span>
+              <span class="suite-name border-failed">Default suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\sidha\AppData\Local\Temp\testng-eclipse--451803717\testng-customsuite.xml</span>
+                    <span>C:\Users\sidha\AppData\Local\Temp\testng-eclipse--1032738222\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -91,7 +91,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">3 methods,   3 passed</span>
+                    <span class="method-stats">5 methods, 1 failed,   4 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Default_suite" class="hide-methods failed suite-Default_suite"> (hide)</a> <!-- hide-methods failed suite-Default_suite -->
+                      <a href="#" panel-name="suite-Default_suite" class="show-methods failed suite-Default_suite"> (show)</a> <!-- show-methods failed suite-Default_suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Default_suite">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="com.weatherapiui.compareApiUiData" class="method navigator-link" hash-for-method="compareApiUiTemperature">compareApiUiTemperature</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Default_suite -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -102,7 +116,12 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.weatherapiui.compareApiUiData" class="method navigator-link" hash-for-method="getTemperature">getTemperature</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.weatherapiui.compareApiUiData" class="method navigator-link" hash-for-method="getApiTemperature">getApiTemperature</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="com.weatherapiui.compareApiUiData" class="method navigator-link" hash-for-method="getUiTemperature">getUiTemperature</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
@@ -127,6 +146,56 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Default_suite" class="panel Default_suite">
+          <div class="suite-Default_suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">com.weatherapiui.compareApiUiData</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="compareApiUiTemperature">
+                  </a> <!-- compareApiUiTemperature -->
+                  <span class="method-name">compareApiUiTemperature</span>
+                  <div class="stack-trace">java.lang.AssertionError: The Temperature difference is acceptible expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.failNotEquals(Assert.java:969)
+	at org.testng.Assert.assertTrue(Assert.java:43)
+	at com.weatherapiui.compareApiUiData.compareApiUiTemperature(compareApiUiData.java:102)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:766)
+	at org.testng.TestRunner.run(TestRunner.java:587)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1109)
+	at org.testng.TestNG.runSuites(TestNG.java:1039)
+	at org.testng.TestNG.run(TestNG.java:1007)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-failed -->
           <div class="suite-Default_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -135,9 +204,16 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="getTemperature">
-                  </a> <!-- getTemperature -->
-                  <span class="method-name">getTemperature</span>
+                  <a name="getApiTemperature">
+                  </a> <!-- getApiTemperature -->
+                  <span class="method-name">getApiTemperature</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="getUiTemperature">
+                  </a> <!-- getUiTemperature -->
+                  <span class="method-name">getUiTemperature</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -159,7 +235,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\sidha\AppData\Local\Temp\testng-eclipse--451803717\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\sidha\AppData\Local\Temp\testng-eclipse--1032738222\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -208,24 +284,32 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(3);
+data.addRows(5);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'test1SearchCities')
+data.setCell(0, 1, 'getApiTemperature')
 data.setCell(0, 2, 'com.weatherapiui.compareApiUiData')
-data.setCell(0, 3, 15035);
+data.setCell(0, 3, 4042);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'test2PinCity')
+data.setCell(1, 1, 'test1SearchCities')
 data.setCell(1, 2, 'com.weatherapiui.compareApiUiData')
-data.setCell(1, 3, 258);
+data.setCell(1, 3, 3335);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'getTemperature')
+data.setCell(2, 1, 'test2PinCity')
 data.setCell(2, 2, 'com.weatherapiui.compareApiUiData')
-data.setCell(2, 3, 33);
+data.setCell(2, 3, 327);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'getUiTemperature')
+data.setCell(3, 2, 'com.weatherapiui.compareApiUiData')
+data.setCell(3, 3, 80);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'compareApiUiTemperature')
+data.setCell(4, 2, 'com.weatherapiui.compareApiUiData')
+data.setCell(4, 3, 4);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 15 seconds</span>
+              <span class="suite-total-time">Total running time: 7 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -257,20 +341,30 @@ return data;
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
+                <span class="method-name">getApiTemperature</span>
+                <span class="method-start">6364 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
                 <span class="method-name">test1SearchCities</span>
-                <span class="method-start">4423 ms</span>
+                <span class="method-start">10414 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">test2PinCity</span>
-                <span class="method-start">19465 ms</span>
+                <span class="method-start">13755 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">getTemperature</span>
-                <span class="method-start">19725 ms</span>
+                <span class="method-name">getUiTemperature</span>
+                <span class="method-start">14087 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">compareApiUiTemperature</span>
+                <span class="method-start">14170 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">afterClass</span>
-                <span class="method-start">19760 ms</span>
+                <span class="method-start">14180 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
