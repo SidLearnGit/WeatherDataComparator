@@ -5,12 +5,8 @@
     <classes>
       <class name="com.weatherapiui.compareApiUiData">
         <methods>
-          <include name="test1SearchCities"/>
           <include name="afterClass"/>
-          <include name="getUiTemperature"/>
-          <include name="compareApiUiTemperature"/>
           <include name="beforeClass"/>
-          <include name="test2PinCity"/>
           <include name="getApiTemperature"/>
         </methods>
       </class> <!-- com.weatherapiui.compareApiUiData -->

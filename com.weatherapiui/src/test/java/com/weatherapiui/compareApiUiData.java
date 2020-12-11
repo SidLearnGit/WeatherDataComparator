@@ -39,6 +39,7 @@ public class compareApiUiData {
 	  driver=new FirefoxDriver();
   } 
 
+  //Searching cities
   @Test
   public void test1SearchCities() {
 	  driver.get(Config.uiUrl);
@@ -49,6 +50,9 @@ public class compareApiUiData {
 	  Assert.assertTrue(citiesSearchResult.size()>0," Atleast one city with name should exist");
 	  
   }
+  
+  //pin city and check pop up
+  
   @Test(dependsOnMethods = "test1SearchCities")
   public void test2PinCity() {
 	  WebElement cityDataPopup=null;
@@ -73,17 +77,26 @@ public class compareApiUiData {
 	  
   }
   
+  //get temperature from UI
   @Test(dependsOnMethods = "test2PinCity")
   public void getUiTemperature() {
+	  WebElement temprature=null;
+	  try {
+		  
+		  temprature=driver.findElement(By.xpath(Config.PopupTemperatureXpath));
+		  String[] tempStrings=temprature.getText().split(": ");
+		  uiTemperature=Integer.parseInt(tempStrings[1]);
+		  
+	  }catch(Exception e) {		  
+	  }
 	  
-	  WebElement temprature=driver.findElement(By.xpath(Config.PopupTemperatureXpath));
-	  String[] tempStrings=temprature.getText().split(": ");
-	  uiTemperature=Integer.parseInt(tempStrings[1]);
-	  
+	  Assert.assertNotNull(temprature, "The Temperature of the city should be retrieved from UI");
   }
+  
+  //get temperature from api
   @Test
   public void getApiTemperature() {
-	  
+	  Float temperature=null;
 	  RestAssured.baseURI=Config.apiBaseUrl;
 	  RequestSpecification apiCall=RestAssured.given()
 			  .param(Config.apiParamCityKey,city)
@@ -91,11 +104,14 @@ public class compareApiUiData {
 			  .param(Config.apiTempUnitsKey,Config.apiTempUnitsValue);
 	 
 	  Response apiResponse=apiCall.request(Method.GET);
-	   HashMap<Object,Object> weatherData=apiResponse.jsonPath().getJsonObject(Config.jsonObejctName);
-	  apiTemperature=(Integer)weatherData.get(Config.jsonTemperatureKey);
-	  System.out.println(apiTemperature);
+	  HashMap<Object,Object> weatherData=apiResponse.jsonPath().getJsonObject(Config.jsonObejctName);
+	  temperature=(Float)weatherData.get(Config.jsonTemperatureKey);
+	  apiTemperature=(int)((float)temperature);
+	  Assert.assertNotNull(temperature,"The Temperature of the city should be retrieved from API");
+	  
   }
   
+  // Compare temperature from ui and api
   @Test(dependsOnMethods = {"getApiTemperature","getUiTemperature"})
   public void compareApiUiTemperature() {
 	  System.out.println(uiTemperature+ " "+apiTemperature);
@@ -104,6 +120,15 @@ public class compareApiUiData {
   
   @AfterClass
   public void afterClass() {
+	  
+	  try {
+		Thread.sleep(5000);
+	} catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	  
+	  driver.quit();
   }
 
 }
